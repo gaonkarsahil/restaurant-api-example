@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^14.3.2",
     "fastify": "^3.27.0",
     "fastify-openapi-glue": "^2.6.5",
     "mongoose": "^6.1.8",

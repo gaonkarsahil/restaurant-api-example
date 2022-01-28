@@ -17,6 +17,16 @@ fastify.register(openapiGlue, glueOptions);
 const start = async () => {
   try {
     await fastify.listen(3000);
+    mongoose.connect(process.env.DB_CONNECT_URI).then(() => {
+      console.log("Mongoose connected");
+    });
+
+    mongoose.set("toJSON", {
+      virtuals: true,
+      transform: (_doc, converted) => {
+        delete converted._id;
+      },
+    });
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
