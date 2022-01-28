@@ -16,7 +16,7 @@ fastify.register(openapiGlue, glueOptions);
 // Start the server!
 const start = async () => {
   try {
-    await fastify.listen(3000);
+    await fastify.listen(process.env.PORT || 3000);
     mongoose.connect(process.env.DB_CONNECT_URI).then(() => {
       console.log("Mongoose connected");
     });
